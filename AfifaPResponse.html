@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: auto;
+            background-color: black;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1{
+            color: white;
+            letter-spacing: 4px;
+            font-size: 5rem;
+            font-family: cursive;
+            animation: glow 2s ease-in-out infinite;
+            transition: all 1s;
+            text-align: center;
+        }
+        @keyframes glow{
+            0%{
+                text-shadow: 2px 2px 46px rgb(239, 49, 249),0 0 46px rgb(239, 49, 249),0 0 46px rgb(239, 49, 249),0 0 46px rgb(239, 49, 249);
+            }
+            50%{
+                text-shadow: 0 0 3px rgb(209, 8, 220),0 0 26px rgb(239, 49, 249),0 0 16px rgb(239, 49, 249);
+            }
+            100%{
+                text-shadow: 1px 1px 55px rgb(209, 8, 220),0 0 46px rgb(239, 49, 249),0 0 56px rgb(239, 49, 249),0 0 46px rgb(239, 49, 249);
+            }
+        }
+
+        .mainimg{
+            width: 100%;
+        }
+
+        .imgdiv{
+            width: 70%; /* Adjust this to make the main image smaller */
+            border: 4px solid white;
+            border-radius: 3rem;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 0 40px 0px white;
+        }
+
+        p{
+            color: white;
+            letter-spacing: 2px;
+            text-align: center;
+            padding: 0 3rem;
+            margin-top: 2rem;
+            font-size: 2rem;
+            text-shadow: 0 0 30px rgb(226, 0, 230);
+            font-family: cursive;
+        }
+
+        .box{
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .round{
+            width: 4rem;
+            border-radius: 50%;
+            height: 4rem;
+            object-fit: cover;
+            object-position: 72%;
+            border: 2px solid white;
+            box-shadow: 0 0 50px 3px white;
+            position: absolute;
+            margin: -2rem;
+        }
+
+        .outer{
+            width: 50rem;
+            height: 50rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: outer 50s ease infinite;
+            transition: all 1s;
+            border: 2px solid white;
+            position: relative;
+        }
+
+        @keyframes outer{
+            0%{
+                rotate: 0;
+            }
+            100%{
+                rotate: 360deg;
+            }
+        }
+
+        .mid{
+            width: 35rem;
+            height: 35rem;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: mid 20s ease-in-out infinite;
+            border: 2px solid white;
+        }
+
+        @keyframes mid{
+            0%{
+                rotate: 0;
+            }
+            100%{
+                rotate: -720deg;
+            }
+        }
+
+        .inner{
+            width: 20rem;
+            height: 20rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .innerimg{
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            object-position: 73%;
+            border-radius: 50%; 
+            box-shadow: 0 0 30px 30px white;
+            animation: inner 40s infinite;
+        }
+
+        @keyframes inner{
+            0%{
+                rotate: 0;
+            }
+            100%{
+                rotate: 1500deg;
+            }
+        }
+
+        /* Rain of Random Emoji Flowers */
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            animation: rain 5s linear infinite;
+            z-index: 1000;
+            animation-delay: 0s; /* Randomize animation delay */
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Randomizing flower positions */
+        .flower:nth-child(1) { left: 10%; animation-delay: 1s; }
+        .flower:nth-child(2) { left: 25%; animation-delay: 2s; }
+        .flower:nth-child(3) { left: 50%; animation-delay: 3s; }
+        .flower:nth-child(4) { left: 65%; animation-delay: 4s; }
+        .flower:nth-child(5) { left: 80%; animation-delay: 5s; }
+        .flower:nth-child(6) { left: 90%; animation-delay: 6s; }
+
+        /* Responsive adjustments for circular orbits and main photo */
+        @media screen and (max-width: 768px) {
+            .mid, .inner {
+                width: 25rem;
+                height: 25rem;
+            }
+            .round {
+                width: 3rem;
+                height: 3rem;
+            }
+            .imgdiv {
+                width: 70%; /* Reduce size of the main image container on mobile */
+            }
+            .mainimg {
+                width: 100%; /* Keep the main image filling its container */
+                margin: 0 auto;
+            }
+            .outer{
+                width: 16rem;
+                height: 16rem;
+            }    
+            .innerimg{
+                width: 10rem;
+                height: 10rem;
+            } 
+            .extend{
+                height: 5rem;
+            }
+            .box{
+                margin-top: 4rem;
+                margin-bottom: 4rem;
+            }
+        }
+
+        .ask-me{
+            margin-top: 30px;
+            margin-left: 5rem;
+            margin-right: 5rem;
+            padding: 15px 30px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        /* Form Styling */
+        .question-container {
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+            font-size: 2rem;
+            
+        }
+        
+        .question-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .form-container {
+            display: none;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .form-container input[type="text"] {
+            width: 300px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            border-radius: 0.5rem;
+            border: none;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem;
+        }
+
+        #userQuestion{
+            width: 70%;
+            height: 100px;
+            box-sizing: border-box;
+            white-space: pre-wrap; /* Ensures the text wraps to the next line */
+            overflow: auto;
+            word-wrap: break-word;
+            font-size: 15px;
+        }
+
+        .submitbutton{
+            margin-left: 10rem;
+            margin-right: 10rem;
+            margin-top: 5rem;
+            text-align: center;
+            /* background-color: #51f451; */
+            /* color: rgb(186, 0, 0); */
+            /* padding: 2rem; */
+            /* padding-left: 2rem; */
+            /* padding-right: 2rem; */
+            /* font-size: 2rem; */
+            /* font-weight: 800; */
+            border: none;
+            /* cursor: pointer; */
+            border-radius: 4rem;
+            margin-top: 1rem;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(145deg, #2a9df4, #1d72b8);
+            border: none;
+            border-radius: 5px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+                        -4px -4px 8px rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-button:active {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.2);
+            transform: translateY(2px);
+        }
+
+        .headname{
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="headname">💐Hello💐 ❤️Afifa❤️</h1>
+    
+    <!-- Random Flower Rain -->
+    <div class="flower">🌸</div>
+    <div class="flower">🌻</div>
+    <div class="flower">💐</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌼</div>
+
+    <div class="imgdiv"><img src="photos/main.jpg" class="mainimg"></div>
+    <div style="border: 1px solid white; border-radius: 3rem; margin: 4rem 2rem;">
+        <p>💐💐Hello, Mrs. ❤️Afifa❤️. I hope you're as amazing as your killing smile. I don’t know much about you, but there's something about you that’s truly awesome, even though I can’t quite put my finger on it.
+            I don’t know why I like you... when? I have no idea.💐
+            I hope you're not thinking I’m being cheesy this time. Now, what else should I say? that i also dont know. 💐💐💐</p>
+    </div>
+
+    <div class="box">
+        <div class="outer">
+            <!-- Outer Orbit Photos -->
+            <img src="photos/5th.jpg" class="round" style="right: 0;">
+            <img src="photos/4th.jpg" class="round" style="top: 0;">
+            <img src="photos/3rd.jpg" class="round" style="left: 0;">
+            <img src="photos/2nd.jpg" class="round" style="bottom: 0;">
+            
+            <div class="mid">
+                <div class="inner">
+                    <img src="photos/center.jpg" class="innerimg">
+                    <!-- Inner Orbit Photos -->
+                    <img src="photos/part.jpg" class="round" style="right: 0;">
+                    <img src="photos/8th.jpg" class="round" style="top: 0;">
+                    <img src="photos/7th.jpg" class="round" style="left: 0;">
+                    <img src="photos/6th.jpg" class="round" style="bottom: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Form -->
+    <div class="question-container">
+        
+        <p class="ask-me">💖 Do you want to ask something 𝒜𝒻𝒾𝒻𝒶 💖?</p>
+        <button class="question-btn" onclick="toggleForm()">🐹  🎀  𝒴𝑒𝓈  🎀  🐹</button>
+    </div>
+
+    <div class="form-container" id="formContainer">
+        <form method="post" action="https://script.google.com/macros/s/AKfycbz0FlAA13I-SPjjjmP2N-DYxmWGvIdvsbt_OGYJHhEnJyAPbnBSLzbA12GuR6a0mFz5/exec" name="contact-form">
+        <textarea id="userQuestion" name="myTextArea" rows="4" cols="50" placeholder="🌼Your Question 💐Afifa💐"></textarea>
+        <div >
+            <input type="submit" value="🌼Submit🌼" class="submit-button">
+        </div>
+        </form>
+        
+    </div>
+
+    <script>
+
+        // Toggle form visibility
+        function toggleForm() {
+            var formContainer = document.getElementById("formContainer");
+            formContainer.style.display = "block";
+        }
+
+        const form = document.forms['contact-form'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Prevent the default form submission
+
+            const scriptURL = form.action;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    alert("💖 Thank you! Afifa 💖");
+                    form.reset(); // Reset the form fields
+                })
+                .catch(error => {
+                    alert("Sorry Afifa. Server Issue");
+                    console.error("Error!", error.message);
+                });
+        });
+
+
+
+    </script>
+
+</body>
+</html>
